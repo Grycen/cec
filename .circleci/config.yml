@@ -8,9 +8,15 @@ jobs:
       - run:
           name: Update npm
           command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Install node testing dependencies
           command: 'sudo npm install -g testcafe'
       - run:
           name: Run tests
           command: 'testcafe "chrome:headless" tests/button_test.js'
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
