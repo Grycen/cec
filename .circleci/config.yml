@@ -3,3 +3,13 @@ jobs:
   build:
     docker:
       - image: circleci/node:latest-browsers
+    steps:
+      - checkout
+      - run:
+          name: Install node testing dependencies
+          command: |
+            npm install -g testcafe
+      - run:
+          name: Run tests
+          command: |
+            testcafe "chrome:headless" tests/button_test.js
