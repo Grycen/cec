@@ -6,10 +6,11 @@ jobs:
     steps:
       - checkout
       - run:
+        name: Update npm
+        command: 'sudo npm install -g npm@latest'
+      - run:
           name: Install node testing dependencies
-          command: |
-            npm install -g testcafe
+          command: 'sudo npm install -g testcafe'
       - run:
           name: Run tests
-          command: |
-            testcafe "chrome:headless" tests/button_test.js
+          command: 'testcafe "chrome:headless" tests/button_test.js'
