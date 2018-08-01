@@ -20,4 +20,4 @@ jobs:
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           path:
-            - .
+            - ./node_modules
