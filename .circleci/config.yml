@@ -19,3 +19,5 @@ jobs:
           command: 'testcafe "chrome:headless" tests/button_test.js'
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
+          path:
+            - .
