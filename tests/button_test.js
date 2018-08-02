@@ -1,7 +1,7 @@
 import { Selector } from 'testcafe';
 
 fixture `Button Test`
-    .page `../index.html`;
+    .page `../public/index.html`;
 
 test('My button test', async t => {
     await t
